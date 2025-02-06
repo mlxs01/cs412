@@ -145,3 +145,6 @@ CS_DEPLOYMENT_HOSTNAME = 'cs-webapps.bu.edu'
 if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
     STATIC_URL = '/mlxs/static/'
     MEDIA_URL = '/mlxs/media/'
+else:
+    STATIC_URL = 'static/'
+    MEDIA_URL = 'media/'

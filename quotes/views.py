@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings
 import random
 
 # Sample quotes and images
@@ -9,9 +10,9 @@ quotes_list = [
 ]
 
 images_list = [
-    'media/FDR.jpeg',
-    'media/connerPrice.jpg',
-    'media/numi.png',
+    f"{settings.MEDIA_URL}FDR.jpeg",
+    f"{settings.MEDIA_URL}connerPrice.jpg",
+    f"{settings.MEDIA_URL}numi.png",
 ]
 
 # View for the main page (random quote and image)
