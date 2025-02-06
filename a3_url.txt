@@ -1,1 +1,1 @@
-https://cs412-quotes-524e777b8447.herokuapp.com/quotes/
+https://cs-webapps.bu.edu/mlxs/quotes/
