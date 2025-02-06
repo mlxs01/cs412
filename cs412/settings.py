@@ -12,16 +12,28 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import socket
+
+CS_DEPLOYMENT_HOSTNAME = 'cs-webapps.bu.edu'
+
+if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
+    STATIC_URL = '/mlxs/static/'
+    MEDIA_URL = '/mlxs/media/'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = 'static/' # note: no leading slash!
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL= "media/"  # note: no leading slash!
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -32,7 +44,7 @@ SECRET_KEY = 'django-insecure-6&op@1!!e8&xd)5kor4e=&_hw6nue)%unfy-5o!77af%u@_ajv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['cs-webapps.bu.edu']
 
 
 # Application definition
