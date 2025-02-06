@@ -9,9 +9,9 @@ quotes_list = [
 ]
 
 images_list = [
-    "{% static/media 'FDR.jpeg' %}",
-    "{% static/media 'connerPrice.jpg' %}",
-    "{% static/media 'numi.png' %}"
+    'media/FDR.jpeg',
+    'media/connerPrice.jpg',
+    'media/numi.png',
 ]
 
 # View for the main page (random quote and image)
