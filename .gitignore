@@ -1,3 +1,4 @@
+#Part of google search, same as requirement.txt, also debricated
 # Ignore Python compiled files
 __pycache__/
 *.pyc

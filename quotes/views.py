@@ -9,6 +9,7 @@ quotes_list = [
     "ehh heh heh ehh heh heh SNRK ehh heh heh ehh heh heh SNRK"
 ]
 
+""" Not HTML so used same syntax as urls.py """
 images_list = [
     f"{settings.MEDIA_URL}FDR.jpeg",
     f"{settings.MEDIA_URL}connerPrice.jpg",

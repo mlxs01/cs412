@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -6,12 +12,12 @@ body {
 
 header {
     background-color: #333;
-    color: white;
+    color: #34db87;
     padding: 15px;
 }
 
 nav a {
-    color: white;
+    color: #34db87;
     margin: 0 15px;
     text-decoration: none;
 }

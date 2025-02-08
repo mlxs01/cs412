@@ -10,5 +10,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+""" Added this because a new media route in settings """
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
