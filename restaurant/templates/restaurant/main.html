@@ -1,0 +1,36 @@
+<!-- main.html 
+Homepage template for the restaurant website.
+Displays welcome message, location information, and hours of operation.
+Extends the base template.
+-->
+{% extends 'restaurant/base.html' %}
+
+{% block title %}Fresh & Fast - Home{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to Fresh & Fast</h1>
+    <img src="{{ img }}" alt="Featured dish" class="featured-image">
+</div>
+
+<section class="info">
+    <h2>Location</h2>
+    <p>123 Main Street, Boston, MA 02215</p>
+    
+    <h2>Hours of Operation</h2>
+    <table class="hours">
+        <tr>
+            <td>Monday - Friday</td>
+            <td>11:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+            <td>Saturday</td>
+            <td>12:00 PM - 11:00 PM</td>
+        </tr>
+        <tr>
+            <td>Sunday</td>
+            <td>12:00 PM - 9:00 PM</td>
+        </tr>
+    </table>
+</section>
+{% endblock %}

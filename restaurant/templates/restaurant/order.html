@@ -1,0 +1,110 @@
+<!-- order.html
+Order form template for the restaurant website.
+Provides an interface for customers to select menu items and submit orders.
+Includes JavaScript for handling form interactions.
+Extends the base template.
+-->
+{% extends 'restaurant/base.html' %}
+{% block title %}Fresh & Fast - Order Online{% endblock %}
+
+{% block content %}
+<div class="order-page">
+    <h1>Place Your Order</h1>
+    <img src="{{ img }}" alt="Featured dish" class="featured-image">
+    
+    <form method="POST" action="{% url 'confirmation' %}">
+        {% csrf_token %}
+        
+        <div class="menu-section">
+            <h2>Menu Items</h2>
+            
+            <div class="menu-item">
+                <input type="checkbox" id="burger" name="items" value="Classic Burger" onchange="handleBurgerChange()">
+                <label for="burger">Classic Burger - $12.99</label>
+                <div class="options">
+                    <input type="checkbox" id="cheese" name="extras" value="Extra Cheese" onchange="handleExtrasChange()">
+                    <label for="cheese">Extra Cheese (+$1)</label>
+                    <input type="checkbox" id="bacon" name="extras" value="Bacon" onchange="handleExtrasChange()">
+                    <label for="bacon">Bacon (+$2)</label>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <input type="checkbox" id="salad" name="items" value="Garden Salad">
+                <label for="salad">Garden Salad - $9.99</label>
+            </div>
+            
+            <div class="menu-item">
+                <input type="checkbox" id="pizza" name="items" value="Margherita Pizza">
+                <label for="pizza">Margherita Pizza - $14.99</label>
+            </div>
+            
+            <div class="menu-item special">
+                <input type="checkbox" id="special" name="items" value="{{ daily_special }}">
+                <label for="special">Daily Special: {{ daily_special }} - $16.99</label>
+            </div>
+        </div>
+        
+        <div class="customer-info">
+            <h2>Customer Information</h2>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="instructions">Special Instructions:</label>
+                <textarea id="instructions" name="instructions" rows="4"></textarea>
+            </div>
+        </div>
+        
+        <button type="submit" class="order-button">Place Order</button>
+    </form>
+</div>
+
+<script>
+function handleBurgerChange() {
+    const burgerCheckbox = document.getElementById('burger');
+    const cheeseCheckbox = document.getElementById('cheese');
+    const baconCheckbox = document.getElementById('bacon');
+    
+    // If burger is unchecked, uncheck and disable extras
+    if (!burgerCheckbox.checked) {
+        cheeseCheckbox.checked = false;
+        baconCheckbox.checked = false;
+        cheeseCheckbox.disabled = true;
+        baconCheckbox.disabled = true;
+    } else {
+        // If burger is checked, enable extras
+        cheeseCheckbox.disabled = false;
+        baconCheckbox.disabled = false;
+    }
+}
+
+function handleExtrasChange() {
+    const burgerCheckbox = document.getElementById('burger');
+    const cheeseCheckbox = document.getElementById('cheese');
+    const baconCheckbox = document.getElementById('bacon');
+    
+    // If any extra is checked, ensure burger is checked
+    if (cheeseCheckbox.checked || baconCheckbox.checked) {
+        burgerCheckbox.checked = true;
+    }
+}
+
+// Initialize the state of extras on page load
+window.onload = function() {
+    handleBurgerChange();
+};
+</script>
+{% endblock %}
