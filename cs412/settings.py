@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'quotes',
     'hw',
+    'restaurant',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# Changed this to be EST instead of UTC
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
