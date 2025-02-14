@@ -36,14 +36,6 @@ MENU_PRICES = {
     'Bacon': 2.00
 }
 
-def debug_context(request):
-    return {
-        'STATIC_URL': settings.STATIC_URL,
-        'STATIC_ROOT': settings.STATIC_ROOT,
-        'STATICFILES_DIRS': settings.STATICFILES_DIRS,
-        'HOST': request.get_host()
-    }
-
 # Logic for main page
 def main(request):
     """
@@ -57,8 +49,7 @@ def main(request):
     """
 
     context = {
-        'img': random.choice(img_list),
-        'debug': debug_context(request),
+        'img': random.choice(img_list)
     }
     return render(request, 'restaurant/main.html', context)
 
